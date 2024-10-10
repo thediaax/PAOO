@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fatec.ipiranga.blogpessoal.model.Usuario;
-import fatec.ipiranga.blogpessoal.repository.UsuarioRepository;
+import fatec.ipiranga.blogpessoal.model.Cliente;
+import fatec.ipiranga.blogpessoal.repository.ClienteRepository;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/cliente")
 @CrossOrigin(origins="*",allowedHeaders="*")
 
-public class UsuarioController {
+public class ClienteController {
 
     @Autowired
-    private UsuarioRepository repository;
+    private ClienteRepository repository;
 
     @PostMapping
-    public ResponseEntity<Usuario> post (@RequestBody Usuario usuario){
-        return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(usuario));
+    public ResponseEntity<Cliente> post (@RequestBody Cliente cliente){
+        return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(cliente));
     }
 }
 
