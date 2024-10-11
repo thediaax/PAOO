@@ -17,7 +17,7 @@ public class Pedido {
     @OneToMany(mappedBy="pedido", cascade=CascadeType.ALL)
     private List<Produto> carrinhoProdutos;
     
-    private LocalDate date;
+    private LocalDate date = LocalDate.now();
     private long precoTotal;
 
     public long getId() {
