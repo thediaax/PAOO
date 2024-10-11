@@ -6,14 +6,17 @@ import java.util.List;
 
 @Entity
 @Table(name="pedido")
+
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long idUsuario;
-    @ElementCollection
-    private List<String> carrinhoProdutos;
+    
+    @OneToMany(mappedBy="pedido", cascade=CascadeType.ALL)
+    private List<Produto> carrinhoProdutos;
+    
     private LocalDate date;
     private long precoTotal;
 
@@ -33,11 +36,11 @@ public class Pedido {
         this.idUsuario = idUsuario;
     }
 
-    public List<String> getCarrinhoProdutos() {
+    public List<Produto> getCarrinhoProdutos() {
         return carrinhoProdutos;
     }
 
-    public void setCarrinhoProdutos(List<String> carrinhoProdutos) {
+    public void setCarrinhoProdutos(List<Produto> carrinhoProdutos) {
         this.carrinhoProdutos = carrinhoProdutos;
     }
 
