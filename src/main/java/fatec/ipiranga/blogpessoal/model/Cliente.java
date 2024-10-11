@@ -16,10 +16,9 @@ public class Cliente {
 	private long id;
 	
 	private String nome;
-	
 	private String senha;
-
 	private String email;
+	private long cpf;
 	
 	
 
@@ -50,8 +49,17 @@ public class Cliente {
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public long getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(long cpf) {
+		this.cpf = cpf;
 	}
 	
 	
