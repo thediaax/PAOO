@@ -39,14 +39,14 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Produto> GetById(@PathVariable long id){
+	public ResponseEntity<Produto> GetById(@PathVariable("id") long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Produto>> GetByNome(@PathVariable String nome){
+	public ResponseEntity<List<Produto>> GetByNome(@PathVariable("nome") String nome){
 		List<Produto> produtos = repository.findAllByNomeContainingIgnoreCase(nome);
 		
 		if(produtos.isEmpty()) {
@@ -58,7 +58,7 @@ public class ProdutoController {
 	}
 	
 	@PutMapping("/id/{id}")
-	public ResponseEntity<Produto> UpdateById(@PathVariable long id, @RequestBody Produto produtoAtualizado){
+	public ResponseEntity<Produto> UpdateById(@PathVariable("id") long id, @RequestBody Produto produtoAtualizado){
 		return repository.findById(id)
 				.map(produto -> {
 					Optional.ofNullable(produtoAtualizado.getNome()).ifPresent(produto::setNome);
@@ -72,7 +72,7 @@ public class ProdutoController {
 	}
 	
 	@DeleteMapping("/id/{id}")
-	public ResponseEntity<String> DeleteById(@PathVariable long id) {
+	public ResponseEntity<String> DeleteById(@PathVariable("id") long id) {
 	    if (repository.existsById(id)) {
 	        repository.deleteById(id);
 	        return ResponseEntity.ok("Produto com ID " + id + " foi excluído com sucesso.");
