@@ -26,12 +26,12 @@ public class ClienteController {
     }
  
     @GetMapping
-    public ResponseEntity<List<Cliente>> getAll() {
+    public ResponseEntity<List<Cliente>> GetAll() {
         return ResponseEntity.ok(repository.findAll());
     }
  
     @GetMapping("id/{id}")
-    public ResponseEntity<Cliente> getById(@PathVariable Long id) {
+    public ResponseEntity<Cliente> GetById(@PathVariable("id") long id) {
         Optional<Cliente> cliente = repository.findById(id);
         if (cliente.isPresent()) {
             return ResponseEntity.ok(cliente.get());
@@ -41,7 +41,7 @@ public class ClienteController {
     }
     
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<List<Cliente>> getByNome(@PathVariable String nome){
+    public ResponseEntity<List<Cliente>> GetByNome(@PathVariable("nome") String nome){
     	List<Cliente> clientes = repository.findAllByNomeContainingIgnoreCase(nome);
     	
     	if(clientes.isEmpty()) {
@@ -52,8 +52,8 @@ public class ClienteController {
     	}
     }
 
-     @PutMapping("id/{id}")
-    public ResponseEntity<Cliente> update(@PathVariable Long id, @RequestBody Cliente cliente) {
+     @PutMapping("/id/{id}")
+    public ResponseEntity<Cliente> update(@PathVariable("id") long id, @RequestBody Cliente cliente) {
         return repository.findById(id)
             .map(clienteExistente -> {
                 clienteExistente.setNome(cliente.getNome());
@@ -66,7 +66,7 @@ public class ClienteController {
     }
 
      @DeleteMapping("/id/{id}")
- 	public ResponseEntity<String> DeleteById(@PathVariable long id) {
+ 	public ResponseEntity<String> DeleteById(@PathVariable("id") long id) {
  	    if (repository.existsById(id)) {
  	        repository.deleteById(id);
  	        return ResponseEntity.ok("Cliente com ID " + id + " foi excluído com sucesso.");
