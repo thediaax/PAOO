@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fatec.ipiranga.blogpessoal.model.Pedido;
 import fatec.ipiranga.blogpessoal.repository.PedidoRepository;
+import fatec.ipiranga.blogpessoal.repository.ProdutoRepository;
 
 @RestController
 @RequestMapping("/pedido")
@@ -30,9 +31,12 @@ public class PedidoController {
 	@Autowired
 	private PedidoRepository repository;
 	
+	@Autowired
+	private ProdutoRepository produtoRepository;
+	
 	@PostMapping
-	public ResponseEntity<Pedido> post (@RequestBody Pedido produto){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
+	public ResponseEntity<Pedido> post (@RequestBody Pedido pedido){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(pedido));
 	}
 	
 	@GetMapping
@@ -41,14 +45,14 @@ public class PedidoController {
 	}
 	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Pedido> GetById(@PathVariable long id){
+	public ResponseEntity<Pedido> GetById(@PathVariable("id") long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/idUsuario/{idUsuario}")
-	public ResponseEntity<List<Pedido>> GetByIdUsuario(@PathVariable long idUsuario){
+	public ResponseEntity<List<Pedido>> GetByIdUsuario(@PathVariable("idUsuario") long idUsuario){
 		List<Pedido> pedidos = repository.findByIdUsuario(idUsuario);
 		
 		if(pedidos.isEmpty()) {
@@ -60,8 +64,8 @@ public class PedidoController {
 	}
 	
 	@GetMapping("/dataPedido/{data}")
-	public ResponseEntity<List<Pedido>> GetByDataPedido(@PathVariable String data){
-		DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	public ResponseEntity<List<Pedido>> GetByDataPedido(@PathVariable("data") String data){
+		DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
 		try {
 			LocalDate dataFormatada = LocalDate.parse(data, formatarData);
@@ -79,21 +83,29 @@ public class PedidoController {
 		}
 	}
 	
-	@PutMapping("/id/{id}")
-	public ResponseEntity<Pedido> UpdateById(@PathVariable long id, @RequestBody Pedido pedidoAtualizado){
-		return repository.findById(id)
-				.map(pedido -> {
-					Optional.ofNullable(pedidoAtualizado.getCarrinhoProdutos()).ifPresent(pedido::setCarrinhoProdutos);
-		            Optional.ofNullable(pedidoAtualizado.getDate()).ifPresent(pedido::setDate);
-		            Optional.ofNullable(pedidoAtualizado.getPrecoTotal()).ifPresent(pedido::setPrecoTotal);
-					
-					return ResponseEntity.ok(repository.save(pedido));
-				})
-				.orElse(ResponseEntity.notFound().build());
+	@PutMapping("/idPedido/{idPedido}/idProduto/{idProduto}")
+	public ResponseEntity<Pedido> AdicionarProdutoCarrinho(@PathVariable("idPedido") long idPedido, @PathVariable("idProduto") long idProduto){
+		var pedido = repository.findById(idPedido).orElseThrow();
+		var produto = produtoRepository.findById(idProduto).orElseThrow();
+		
+		pedido.adicionarProduto(produto);
+		
+		return ResponseEntity.ok(repository.save(pedido));
 	}
 	
-	@DeleteMapping("/id/{id}")
-	public ResponseEntity<String> DeleteById(@PathVariable long id) {
+	@DeleteMapping("idPedido/{idPedido}/idProduto/{idProduto}")
+	public ResponseEntity<String> DeleteProdutoCarrinho(@PathVariable("idPedido") long idPedido, @PathVariable("idProduto") long idProduto){
+		var pedido = repository.findById(idPedido).orElseThrow();
+		var produto = produtoRepository.findById(idProduto).orElseThrow();
+		
+		pedido.removerProduto(produto);
+		repository.save(pedido);
+		
+		return ResponseEntity.ok("O Produto com ID " + idProduto + " foi excluído com sucesso do Pedido com ID " + idPedido + ".");
+	}
+	
+	@DeleteMapping("/idPedido/{id}")
+	public ResponseEntity<String> DeleteById(@PathVariable("id") long id) {
 	    if (repository.existsById(id)) {
 	        repository.deleteById(id);
 	        return ResponseEntity.ok("Pedido com ID " + id + " foi excluído com sucesso.");
