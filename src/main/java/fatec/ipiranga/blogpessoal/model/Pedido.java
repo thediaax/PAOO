@@ -14,7 +14,10 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long idUsuario;
+    
+    @ManyToOne
+    @JoinColumn(name="id_cliente", referencedColumnName="id", nullable=false)
+    private Cliente cliente;
     
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -44,12 +47,12 @@ public class Pedido {
         this.id = id;
     }
 
-    public long getIdUsuario() {
-        return idUsuario;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public List<Produto> getCarrinhoProdutos() {

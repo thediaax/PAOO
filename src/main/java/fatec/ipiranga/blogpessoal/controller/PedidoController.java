@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fatec.ipiranga.blogpessoal.model.Cliente;
 import fatec.ipiranga.blogpessoal.model.Pedido;
+import fatec.ipiranga.blogpessoal.repository.ClienteRepository;
 import fatec.ipiranga.blogpessoal.repository.PedidoRepository;
 import fatec.ipiranga.blogpessoal.repository.ProdutoRepository;
 
@@ -34,9 +36,17 @@ public class PedidoController {
 	@Autowired
 	private ProdutoRepository produtoRepository;
 	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
 	@PostMapping
 	public ResponseEntity<Pedido> post (@RequestBody Pedido pedido){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(pedido));
+		Cliente cliente = clienteRepository.findById(pedido.getCliente().getId()).orElse(null);
+	    if (cliente == null) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+	    }
+	    pedido.setCliente(cliente);
+	    return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(pedido));
 	}
 	
 	@GetMapping
@@ -51,9 +61,9 @@ public class PedidoController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/idUsuario/{idUsuario}")
-	public ResponseEntity<List<Pedido>> GetByIdUsuario(@PathVariable("idUsuario") long idUsuario){
-		List<Pedido> pedidos = repository.findByIdUsuario(idUsuario);
+	@GetMapping("/idCliente/{idCliente}")
+	public ResponseEntity<List<Pedido>> GetByClienteId(@PathVariable("idCliente") long idCliente){
+		List<Pedido> pedidos = repository.findByClienteId(idCliente);
 		
 		if(pedidos.isEmpty()) {
 			return ResponseEntity.notFound().build();

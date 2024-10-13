@@ -7,6 +7,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
-	public List<Pedido> findByIdUsuario(long idUsuario);
+	public List<Pedido> findByClienteId(long idCliente);
 	public List<Pedido> findByDate(LocalDate dataPedido);
 }
