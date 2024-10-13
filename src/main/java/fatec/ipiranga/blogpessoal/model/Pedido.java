@@ -1,6 +1,8 @@
 package fatec.ipiranga.blogpessoal.model;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -14,11 +16,25 @@ public class Pedido {
     private long id;
     private long idUsuario;
     
-    @OneToMany(mappedBy="pedido", cascade=CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+    	name = "pedido_produto",
+    	joinColumns = @JoinColumn(name="pedido_id"),
+    	inverseJoinColumns = @JoinColumn(name="produto_id")
+    )
     private List<Produto> carrinhoProdutos;
     
     private LocalDate date = LocalDate.now();
-    private long precoTotal;
+    private BigDecimal precoTotal = BigDecimal.ZERO;
+    
+    public void adicionarProduto(Produto produto) {
+    	carrinhoProdutos.add(produto);
+    	precoTotal = precoTotal.add(produto.getPreco());
+    }
+    
+    public void removerProduto(Produto produtoDeletar) {
+    	carrinhoProdutos.removeIf(produto -> produto.getId() == produtoDeletar.getId());
+    }
 
     public long getId() {
         return id;
@@ -52,11 +68,11 @@ public class Pedido {
         this.date = date;
     }
 
-    public long getPrecoTotal() {
+    public BigDecimal getPrecoTotal() {
         return precoTotal;
     }
 
-    public void setPrecoTotal(long precoTotal) {
+    public void setPrecoTotal(BigDecimal precoTotal) {
         this.precoTotal = precoTotal;
     }
 }

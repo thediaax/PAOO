@@ -2,6 +2,7 @@ package fatec.ipiranga.blogpessoal.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name="produto")
@@ -15,6 +16,9 @@ public class Produto {
     private String descricao;
     private BigDecimal preco;
     private long qtdEstoque;
+    
+    @ManyToMany(mappedBy = "carrinhoProdutos")
+    private List<Pedido> listaPedidos;
 
 
     public long getId() {
