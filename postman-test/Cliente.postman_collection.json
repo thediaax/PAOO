@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "2acc567d-75ed-430b-ac3f-2f286abe389c",
+		"name": "Cliente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38962202"
+	},
+	"item": [
+		{
+			"name": "Cria um cliente 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Samuel\",\r\n    \"senha\": \"minhaSenha\",\r\n    \"email\": \"meu@email.com\",\r\n    \"cpf\": 12233445567\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um cliente 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Jossias\",\r\n    \"senha\": \"senhaMuitoForte\",\r\n    \"email\": \"seliga@noemail.com.br\",\r\n    \"cpf\": 95385509254\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um cliente 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Samuel Kamelo\",\r\n    \"senha\": \"queSono\",\r\n    \"email\": \"DuasDaManhaE@EuAqui.JavaEhTriste.br\",\r\n    \"cpf\": 99999999991\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um cliente 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Nathaniel\",\r\n    \"senha\": \"duvidoPegaremMinhaSenha\",\r\n    \"email\": \"emailbrabo@ehisso.com\",\r\n    \"cpf\": 96836555309\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca todos clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca o cliente por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente/id/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca todos clientes por Nome",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente/nome/Samuel",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente",
+						"nome",
+						"Samuel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Altera os dados do cliente por ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Jossias\",\r\n    \"senha\": \"fracoDemais\",\r\n    \"email\": \"semEmail\",\r\n    \"cpf\": 10101010101\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente/id/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente",
+						"id",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta os dados do cliente por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/cliente/id/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cliente",
+						"id",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

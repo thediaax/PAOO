@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "76e4be10-04ae-4686-83a3-b44d89af3ff4",
+		"name": "Produto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38962202"
+	},
+	"item": [
+		{
+			"name": "Cria um produto 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Mesa\",\r\n    \"descricao\": \"O mundo acabaria sem as mesas!\",\r\n    \"preco\": 75.43,\r\n    \"qtdEstoque\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um produto 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Vassoura\",\r\n    \"descricao\": \"Ela varre tudo!\",\r\n    \"preco\": 23.5,\r\n    \"qtdEstoque\": 15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um produto 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Lampada\",\r\n    \"descricao\": \"Luz uall!\",\r\n    \"preco\": 98.56,\r\n    \"qtdEstoque\": 999\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um produto 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Vassoura Gamer\",\r\n    \"descricao\": \"Luz uall, MAS AGORA TEM LED RGB!\",\r\n    \"preco\": 11.22,\r\n    \"qtdEstoque\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca todos produtos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca o produto por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto/id/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca todos os produtos por Nome",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto/nome/vassoura",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto",
+						"nome",
+						"vassoura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Altera os dados do produto por ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Lampada Bonita\",\r\n    \"descricao\": \"ilumine minha vida\",\r\n    \"preco\": 92.04,\r\n    \"qtdEstoque\": 83\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto/id/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto",
+						"id",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta os dados do produto por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/produto/id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"produto",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

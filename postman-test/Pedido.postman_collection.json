@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "d0bf1ec0-96aa-408d-8b89-3abff32a16df",
+		"name": "Pedido",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38962202"
+	},
+	"item": [
+		{
+			"name": "Cria um pedido 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cliente\": {\r\n    \"id\": 1\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria um pedido 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cliente\": {\r\n    \"id\": 2\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca todos os pedidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca o pedido por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido/id/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido",
+						"id",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca o pedido por ID do Usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido/idCliente/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido",
+						"idCliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca os pedidos por Data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido/dataPedido/2024-10-12",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido",
+						"dataPedido",
+						"2024-10-12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adiciona produto ao carrinho",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido/idPedido/3/idProduto/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido",
+						"idPedido",
+						"3",
+						"idProduto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta produto do pedido por IDs",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido/idPedido/3/idProduto/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido",
+						"idPedido",
+						"3",
+						"idProduto",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta o pedido por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/pedido/idPedido/7",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"pedido",
+						"idPedido",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
