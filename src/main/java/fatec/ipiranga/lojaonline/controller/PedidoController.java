@@ -1,7 +1,6 @@
-package fatec.ipiranga.blogpessoal.controller;
+package fatec.ipiranga.lojaonline.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -19,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fatec.ipiranga.blogpessoal.model.Cliente;
-import fatec.ipiranga.blogpessoal.model.Pedido;
-import fatec.ipiranga.blogpessoal.repository.ClienteRepository;
-import fatec.ipiranga.blogpessoal.repository.PedidoRepository;
-import fatec.ipiranga.blogpessoal.repository.ProdutoRepository;
+import fatec.ipiranga.lojaonline.model.Cliente;
+import fatec.ipiranga.lojaonline.model.Pedido;
+import fatec.ipiranga.lojaonline.repository.ClienteRepository;
+import fatec.ipiranga.lojaonline.repository.PedidoRepository;
+import fatec.ipiranga.lojaonline.repository.ProdutoRepository;
 
 @RestController
 @RequestMapping("/pedido")

@@ -1,4 +1,4 @@
-package fatec.ipiranga.blogpessoal.model;
+package fatec.ipiranga.lojaonline.model;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="cliente") // "usuario" é o nome da tabela
+@Table(name="cliente")
 
 public class Cliente {
 

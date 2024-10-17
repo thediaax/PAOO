@@ -1,4 +1,4 @@
-package fatec.ipiranga.blogpessoal.model;
+package fatec.ipiranga.lojaonline.model;
 
 import jakarta.persistence.*;
 

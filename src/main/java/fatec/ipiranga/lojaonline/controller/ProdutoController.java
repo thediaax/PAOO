@@ -1,4 +1,4 @@
-package fatec.ipiranga.blogpessoal.controller;
+package fatec.ipiranga.lojaonline.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fatec.ipiranga.blogpessoal.model.Produto;
-import fatec.ipiranga.blogpessoal.repository.ProdutoRepository;
+import fatec.ipiranga.lojaonline.model.Produto;
+import fatec.ipiranga.lojaonline.repository.ProdutoRepository;
 
 @RestController
 @RequestMapping("/produto")

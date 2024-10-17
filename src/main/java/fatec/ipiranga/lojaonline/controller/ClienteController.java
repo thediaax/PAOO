@@ -1,12 +1,12 @@
-package fatec.ipiranga.blogpessoal.controller;
+package fatec.ipiranga.lojaonline.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import fatec.ipiranga.blogpessoal.model.Cliente;
-import fatec.ipiranga.blogpessoal.repository.ClienteRepository;
+import fatec.ipiranga.lojaonline.model.Cliente;
+import fatec.ipiranga.lojaonline.repository.ClienteRepository;
 
 import java.util.List;
 import java.util.Optional;

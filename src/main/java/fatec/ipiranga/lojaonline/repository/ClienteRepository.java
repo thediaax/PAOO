@@ -1,7 +1,8 @@
-package fatec.ipiranga.blogpessoal.repository;
+package fatec.ipiranga.lojaonline.repository;
 
-import fatec.ipiranga.blogpessoal.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import fatec.ipiranga.lojaonline.model.Cliente;
 
 import java.util.List;
 

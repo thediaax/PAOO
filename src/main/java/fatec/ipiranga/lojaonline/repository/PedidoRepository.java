@@ -1,7 +1,8 @@
-package fatec.ipiranga.blogpessoal.repository;
+package fatec.ipiranga.lojaonline.repository;
 
-import fatec.ipiranga.blogpessoal.model.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import fatec.ipiranga.lojaonline.model.Pedido;
 
 import java.time.LocalDate;
 import java.util.List;
